@@ -286,7 +286,13 @@ public class FormMataKuliah extends javax.swing.JFrame {
     private void ButtonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEditActionPerformed
         // TODO add your handling code here:
         try{
-            String sql = "UPDATE form_matakuliah SET id_matkul ='"+textidmatkul.getText()+"',mata_kuliah='"+textmatkul.getText()+"',waktu='"+combowaktu.getSelectedItem()+"',semester='"+textsemester.getText()+"',dosen='"+textdosen.getText()+"' WHERE id_matkul= '"+textidmatkul.getText()+"'";
+            String sql = "UPDATE form_matakuliah SET id_matkul ='"+textidmatkul.getText()
+                    +"',mata_kuliah='"+textmatkul.getText()
+                    +"',waktu='"+combowaktu.getSelectedItem()
+                    +"',semester='"+textsemester.getText()
+                    +"',dosen='"+textdosen.getText()
+                    +"' WHERE id_matkul= '"
+                    +textidmatkul.getText()+"'";
             java.sql.Connection conn= (Connection)koneksidb.databaseDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
