@@ -13,7 +13,7 @@ public class koneksidb {
     private static Connection mysqlkoneksi;
     
     public static Connection databaseDB() throws SQLException{
-    try{
+        try{
         String url = "jdbc:mysql://localhost:3306/pbo_uas_database";
         String user = "root";
         String pass = "";
@@ -21,9 +21,9 @@ public class koneksidb {
         DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         mysqlkoneksi = DriverManager.getConnection(url, user, pass);
         
-    }catch(SQLException e){
+     }catch(SQLException e){
         System.out.println("Koneksi ke Database Gagal " + e.getMessage());
-    }
+     }
     return mysqlkoneksi;
     }
     

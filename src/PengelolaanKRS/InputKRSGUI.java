@@ -11,6 +11,17 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+import javax.swing.JInternalFrame;
+import java.io.File;
+import java.util.Optional;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author achma
@@ -98,6 +109,7 @@ public class InputKRSGUI extends javax.swing.JFrame {
         ButtonBatal = new javax.swing.JButton();
         ButtonKembali = new javax.swing.JButton();
         ButtonExit = new javax.swing.JButton();
+        ButtonCetak = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 255));
@@ -244,6 +256,14 @@ public class InputKRSGUI extends javax.swing.JFrame {
         });
         jPanel2.add(ButtonExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 100, -1));
 
+        ButtonCetak.setText("CETAK");
+        ButtonCetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonCetakActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ButtonCetak, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 260, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -261,8 +281,8 @@ public class InputKRSGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -384,6 +404,21 @@ public class InputKRSGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_textcariKeyReleased
 
+    private void ButtonCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCetakActionPerformed
+        // TODO add your handling code here:
+         java.io.File namafile=new java.io.File("./reportinputkrs.jasper");
+        try{
+            net.sf.jasperreports.engine.JasperReport jasper;
+            jasper=(net.sf.jasperreports.engine.JasperReport)
+            net.sf.jasperreports.engine.util.JRLoader.loadObject(namafile.getPath());
+            net.sf.jasperreports.engine.JasperPrint jp;
+            jp=net.sf.jasperreports.engine.JasperFillManager.fillReport(jasper, null, koneksidb.databaseDB());
+            net.sf.jasperreports.view.JasperViewer.viewReport(jp, false);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_ButtonCetakActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -421,6 +456,7 @@ public class InputKRSGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonBatal;
+    private javax.swing.JButton ButtonCetak;
     private javax.swing.JButton ButtonEdit;
     private javax.swing.JButton ButtonExit;
     private javax.swing.JButton ButtonHapus;
