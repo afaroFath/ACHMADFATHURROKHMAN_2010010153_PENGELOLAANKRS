@@ -86,8 +86,8 @@ public class TransaksiKRSGUI extends javax.swing.JFrame {
          
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No. ");
+        model.addColumn("Persemester");
         model.addColumn("Jurusan");
-        model.addColumn("Per Semester");
         model.addColumn("Biaya");
         model.addColumn("Total");
         model.addColumn("Pajak");
@@ -425,8 +425,8 @@ public class TransaksiKRSGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No. ");
+        model.addColumn("Persemester");
         model.addColumn("Jurusan");
-        model.addColumn("Per Semester");
         model.addColumn("Biaya");
         model.addColumn("Total");
         model.addColumn("Pajak");
