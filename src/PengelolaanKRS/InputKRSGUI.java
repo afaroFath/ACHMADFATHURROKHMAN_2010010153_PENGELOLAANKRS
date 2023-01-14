@@ -318,6 +318,7 @@ public class InputKRSGUI extends javax.swing.JFrame {
 
     private void ButtonEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonEditMouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ButtonEditMouseClicked
 
     private void tabelkrsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelkrsMouseClicked

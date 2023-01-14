@@ -429,7 +429,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
     private void ButtonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonHapusActionPerformed
         // TODO add your handling code here:
         try{
-            String sql = "DELETE FROM form_mahasiswa WHERE nim='"+textnim.getText()+"'";
+            String sql = "DELETE FROM form_mahasiswa WHERE nim ='"+textnim.getText()+"'";
             java.sql.Connection conn= (Connection)koneksidb.databaseDB();
             java.sql.PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.execute();
@@ -477,7 +477,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
         
         try{
             int no = 1;
-            String sql = "SELECT * FROM transaksi WHERE jurusan LIKE '%"+textcari.getText()+"%'";
+            String sql = "SELECT * FROM form_mahasiswa WHERE nama_mahasiswa LIKE '%"+textcari.getText()+"%'";
             java.sql.Connection conn=(Connection)koneksidb.databaseDB();
             java.sql.Statement stm = conn.createStatement();
             java.sql.ResultSet res = stm.executeQuery(sql);
